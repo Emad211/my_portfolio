@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <article>
+        <h1>{% if g.locale == 'fa' %}{{ post.title_fa }}{% else %}{{ post.title_en }}{% endif %}</h1>
+        <p>{{ post.timestamp.strftime('%Y-%m-%d') }}</p>
+        <div>{% if g.locale == 'fa' %}{{ post.body_fa }}{% else %}{{ post.body_en }}{% endif %}</div>
+    </article>
+    <a href="{{ url_for('main.blog') }}">{{ _('Back to Blog') }}</a>
+{% endblock %}

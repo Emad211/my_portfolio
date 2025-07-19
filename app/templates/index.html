@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <header>
+        <img src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Profile Photo" width="150">
+        <h1>{{ _('Your Name') }}</h1>
+        <h2>{{ _('Computer Engineer & Programmer') }}</h2>
+        <p>{{ _('A short introduction about yourself.') }}</p>
+    </header>
+
+    <section id="skills">
+        <h2>{{ _('Skills') }}</h2>
+        <ul>
+            <li>Python</li>
+            <li>Flask</li>
+            <li>JavaScript</li>
+            <li>HTML/CSS</li>
+        </ul>
+    </section>
+
+    <section id="portfolio">
+        <h2>{{ _('Portfolio') }}</h2>
+        <div class="grid">
+            {% for item in portfolio_items %}
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/' + item.image_filename) }}" alt="{{ item.title_en }}">
+                <h3>{% if g.locale == 'fa' %}{{ item.title_fa }}{% else %}{{ item.title_en }}{% endif %}</h3>
+                <p>{% if g.locale == 'fa' %}{{ item.description_fa }}{% else %}{{ item.description_en }}{% endif %}</p>
+                <a href="{{ item.link }}">{{ _('View Project') }}</a>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 {{ _('Your Name') }}</p>
+    </footer>
+{% endblock %}

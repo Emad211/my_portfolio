@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>{{ title }}</h1>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.title_en.label }}<br>
+            {{ form.title_en(size=32) }}<br>
+            {% for error in form.title_en.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.title_fa.label }}<br>
+            {{ form.title_fa(size=32) }}<br>
+            {% for error in form.title_fa.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.description_en.label }}<br>
+            {{ form.description_en(cols=50, rows=4) }}<br>
+            {% for error in form.description_en.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.description_fa.label }}<br>
+            {{ form.description_fa(cols=50, rows=4) }}<br>
+            {% for error in form.description_fa.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.image_filename.label }}<br>
+            {{ form.image_filename(size=32) }}<br>
+            {% for error in form.image_filename.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.link.label }}<br>
+            {{ form.link(size=32) }}<br>
+            {% for error in form.link.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}

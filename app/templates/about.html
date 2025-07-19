@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>{{ _('About Me') }}</h1>
+    <p>{{ _('This is where you can write an extended biography about yourself.') }}</p>
+
+    <h2>{{ _('Work & Education') }}</h2>
+    <ul>
+        <li><strong>2020-Present:</strong> {{ _('Your Job Title') }} at {{ _('Your Company') }}</li>
+        <li><strong>2016-2020:</strong> {{ _('Your Degree') }} at {{ _('Your University') }}</li>
+    </ul>
+
+    <h2>{{ _('Skills & Tools') }}</h2>
+    <ul>
+        <li>Python</li>
+        <li>Flask</li>
+        <li>JavaScript</li>
+        <li>HTML/CSS</li>
+        <li>Git</li>
+        <li>Docker</li>
+    </ul>
+
+    <h2>{{ _('Highlighted Projects') }}</h2>
+    <ul>
+        <li><a href="#">{{ _('Project 1') }}</a></li>
+        <li><a href="#">{{ _('Project 2') }}</a></li>
+        <li><a href="#">{{ _('Project 3') }}</a></li>
+    </ul>
+{% endblock %}
